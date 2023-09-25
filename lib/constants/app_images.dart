@@ -8,4 +8,5 @@ class AppImages {
   static String BlueCircle = "assets/image/Ellipse 1547.png";
   static String SmallYellowCircle = "assets/image/Ellipse 1549.png";
   static String SmallBlueCircle = "assets/image/Ellipse 1548.png";
+  static String hashTake = "assets/image/BG_Elements.png";
 }

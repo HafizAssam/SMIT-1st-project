@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:figma_app1/constants/app_themcolor.dart';
-import 'package:figma_app1/screens/cart_Screen/Cart_Screen.dart';
+
 import 'package:figma_app1/screens/switch_Screen/switch_Screen.dart';
 import 'package:flutter/material.dart';
 

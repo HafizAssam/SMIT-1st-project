@@ -4,19 +4,26 @@ import 'package:figma_app1/custom_widget/cartCount.dart';
 import 'package:figma_app1/data.dart';
 import 'package:flutter/material.dart';
 
-class GlobalCards extends StatelessWidget {
+class GlobalCards extends StatefulWidget {
   final String priceText;
   final String itemName;
   final Color iconColor;
-  final void Function()? addFunction;
+  final void Function()? addCartItem;
+  final void Function()? addFavItem;
   const GlobalCards({
     super.key,
     required this.priceText,
     required this.itemName,
     required this.iconColor,
-    required this.addFunction,
+    this.addCartItem,
+    this.addFavItem,
   });
 
+  @override
+  State<GlobalCards> createState() => _GlobalCardsState();
+}
+
+class _GlobalCardsState extends State<GlobalCards> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,7 +44,7 @@ class GlobalCards extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    priceText,
+                    widget.priceText,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -47,20 +54,20 @@ class GlobalCards extends StatelessWidget {
                 ],
               ),
               Text(
-                itemName,
+                widget.itemName,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                      onPressed: addFunction,
+                      onPressed: widget.addFavItem,
                       icon: Icon(
                         Icons.favorite,
-                        color: iconColor,
+                        color: widget.iconColor,
                       )),
                   InkWell(
-                    onTap: addFunction,
+                    onTap: widget.addCartItem,
                     // cartItem.add(Checken[index]);
 
                     child: CircleAvatar(
@@ -72,21 +79,12 @@ class GlobalCards extends StatelessWidget {
                           color: Colors.white,
                         )),
                   ),
-                  // SizedBox(
-                  //   width: 10,
-                  // )
                 ],
               )
             ],
           ),
         ),
-        SizedBox(
-          width: 30,
-        )
       ],
     );
-    // SizedBox(
-    //   width: 30,
-    // );
   }
 }

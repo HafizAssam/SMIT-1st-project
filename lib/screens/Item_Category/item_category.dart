@@ -1,0 +1,71 @@
+import 'package:figma_app1/custom_widget/cards.dart';
+import 'package:figma_app1/custom_widget/cartCount.dart';
+import 'package:figma_app1/data.dart';
+import 'package:figma_app1/screens/category_Screen/category_screen.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+class ItemCategory extends StatefulWidget {
+  const ItemCategory({super.key});
+
+  @override
+  State<ItemCategory> createState() => _ItemCategoryState();
+}
+
+class _ItemCategoryState extends State<ItemCategory> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey,
+        body: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return CategryScreen();
+                            }));
+                          },
+                          icon: Icon(Icons.arrow_back_ios)),
+                      Text("assam"
+                          // category[index]["item"]
+                          ),
+                    ],
+                  ),
+                  CartCount(),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: GridView.builder(
+                    itemCount: Fishes.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    ),
+                    itemBuilder: (context, index) {
+                      return GlobalCards(
+                        priceText: Fishes[index]["price"].toString(),
+                        itemName: Fishes[index]["item"],
+                        iconColor: Fishes[index]['isFav'] == true
+                            ? Colors.red
+                            : Colors.grey,
+                      );
+                    }),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

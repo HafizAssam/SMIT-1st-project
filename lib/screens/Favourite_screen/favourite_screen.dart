@@ -65,12 +65,12 @@ class FavouriteScreen extends StatelessWidget {
             ),
             Expanded(
               child: GridView.builder(
-                  itemCount: fruit.length,
+                  itemCount: favList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                   ),
                   itemBuilder: (context, index) {
-                    return FavCards(itemNameText: fruit[index]['item']);
+                    return FavCards(itemNameText: favList[index]['item']);
                   }),
             ),
           ],

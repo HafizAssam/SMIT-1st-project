@@ -160,14 +160,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 250,
                       child: ListView.builder(
-                        // shrinkWrap: true,
-                        // padding: EdgeInsets.all(50),
-
                         scrollDirection: Axis.horizontal,
                         itemCount: fruit.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addFavItem: () {
+                              if (fruit[index]['isFave'] == true) {
+                                fruit[index]['isFave'] == false;
+                                favList.remove(fruit[index]);
+                                setState(() {});
+                              } else {
+                                fruit[index]['isFave'] == true;
+                                favList.add(fruit[index]);
+                                setState(() {});
+                              }
+                            },
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(fruit[index]);
                               });
@@ -196,12 +204,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 230,
                       child: ListView.builder(
-                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: Karyana.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addFavItem: () {
+                              if (Fishes[index]['isFave'] == true) {
+                                Karyana[index]['isFave'] == false;
+                                favList.remove(Karyana[index]);
+                                setState(() {});
+                              } else {
+                                Karyana[index]['isFave'] == true;
+                                favList.add(Karyana[index]);
+                                setState(() {});
+                              }
+                            },
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(Karyana[index]);
                               });
@@ -230,12 +248,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 230,
                       child: ListView.builder(
-                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: vegetabel.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addFavItem: () {
+                              if (vegetabel[index]['isFave'] == true) {
+                                vegetabel[index]['isFave'] == false;
+                                favList.remove(vegetabel[index]);
+                                setState(() {});
+                              } else {
+                                vegetabel[index]['isFave'] == true;
+                                favList.add(vegetabel[index]);
+                                setState(() {});
+                              }
+                            },
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(vegetabel[index]);
                               });
@@ -264,12 +292,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 230,
                       child: ListView.builder(
-                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemCount: Meat.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addFavItem: () {
+                              if (Meat[index]['isFave'] == true) {
+                                Meat[index]['isFave'] == false;
+                                favList.remove(Meat[index]);
+                                setState(() {});
+                              } else {
+                                Meat[index]['isFave'] == true;
+                                favList.add(Meat[index]);
+                                setState(() {});
+                              }
+                            },
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(Meat[index]);
                               });
@@ -303,7 +341,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: Checken.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addFavItem: () {
+                              if (Checken[index]['isFave'] == true) {
+                                Checken[index]['isFave'] == false;
+                                favList.remove(Checken[index]);
+                                setState(() {});
+                              } else {
+                                Checken[index]['isFave'] == true;
+                                favList.add(Checken[index]);
+                                setState(() {});
+                              }
+                            },
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(Checken[index]);
                               });
@@ -337,10 +386,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: Checken.length,
                         itemBuilder: (context, index) {
                           return GlobalCards(
-                            addFunction: () {
+                            addCartItem: () {
                               setState(() {
                                 cartItem.add(Fishes[index]);
                               });
+                            },
+                            addFavItem: () {
+                              if (Fishes[index]['isFave'] == true) {
+                                Fishes[index]['isFave'] == false;
+                                favList.remove(Fishes[index]);
+                                setState(() {});
+                              } else {
+                                Fishes[index]['isFave'] == true;
+                                favList.add(Fishes[index]);
+                                setState(() {});
+                              }
                             },
                             priceText: Fishes[index]['price'].toString(),
                             itemName: Fishes[index]['item'],

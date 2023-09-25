@@ -4,12 +4,12 @@ List<Map> fruit = [
   {
     'item': 'Mango',
     'price': 320,
-    "isFav": true,
+    "isFav": false,
   },
   {
     'item': 'Banana',
     'price': 80,
-    "isFav": true,
+    "isFav": false,
   },
   {
     'item': 'Apple',
