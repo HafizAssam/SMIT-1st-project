@@ -1,6 +1,7 @@
 import 'package:figma_app1/bottom_navigation_bar.dart';
 import 'package:figma_app1/constants/app_images.dart';
 import 'package:figma_app1/constants/app_themcolor.dart';
+import 'package:figma_app1/custom_widget/CustomButton.dart';
 import 'package:figma_app1/data.dart';
 import 'package:flutter/material.dart';
 
@@ -78,6 +79,7 @@ class CartScreen extends StatelessWidget {
                     itemCount: cartItem.length,
                     itemBuilder: (context, index) {
                       return ListTile(
+                        tileColor: appColor.peach,
                         leading: Image.asset(AppImages.ImageIcon),
                         title: Text(cartItem[index]["item"]),
                         subtitle: Text(cartItem[index]["price"].toString()),
@@ -85,8 +87,75 @@ class CartScreen extends StatelessWidget {
                     }),
               ),
               Container(
-                height: 60,
-                color: appColor.grey,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                  ),
+                  color: appColor.LightGrey,
+                ),
+                width: MediaQuery.of(context).size.width * 0.95,
+                height: MediaQuery.of(context).size.height * 0.25,
+                // color: appColor.LightGrey,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    right: 25,
+                    left: 25,
+                    top: 10,
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Sub Total"),
+                          Text(
+                            "23 Rs",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Delivery"),
+                          Text(
+                            "20 Rs",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(" Total"),
+                          Text(
+                            "100 Rs",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: Custombutton(
+                            onpressed: () {},
+                            buttontextFontSize: 20,
+                            buttonText: "proceed to checkout",
+                            buttonColor: appColor.themColor,
+                            buttonTextColor: appColor.Whitegrey),
+                      )
+                    ],
+                  ),
+                ),
               )
             ],
           ),

@@ -145,6 +145,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       height: 60,
                       width: MediaQuery.of(context).size.width * 0.7,
                       child: Custombutton(
+                        buttontextFontSize: 30,
                         buttonText: 'Get Started',
                         buttonTextColor: Colors.black,
                         buttonColor: appColor.Whitegrey,

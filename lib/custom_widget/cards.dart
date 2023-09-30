@@ -57,30 +57,33 @@ class _GlobalCardsState extends State<GlobalCards> {
                 widget.itemName,
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      onPressed: widget.addFavItem,
-                      icon: Icon(
-                        Icons.favorite,
-                        color: widget.iconColor,
-                      )),
-                  InkWell(
-                    onTap: widget.addCartItem,
-                    // cartItem.add(Checken[index]);
-
-                    child: CircleAvatar(
-                        radius: 12,
-                        backgroundColor: appColor.themColor,
-                        child: Icon(
-                          Icons.add,
-                          size: 20,
-                          color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: widget.addFavItem,
+                        icon: Icon(
+                          Icons.favorite,
+                          color: widget.iconColor,
                         )),
-                  ),
-                ],
-              )
+                    InkWell(
+                      onTap: widget.addCartItem,
+                      // cartItem.add(Checken[index]);
+
+                      child: CircleAvatar(
+                          radius: 12,
+                          backgroundColor: appColor.themColor,
+                          child: Icon(
+                            Icons.add,
+                            size: 20,
+                            color: Colors.white,
+                          )),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

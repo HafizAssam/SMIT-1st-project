@@ -19,54 +19,56 @@ class _ItemCategoryState extends State<ItemCategory> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey,
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return Home();
-                          }));
-                        },
-                        icon: Icon(Icons.arrow_back_ios)),
-                    Text("assam"
-                        // category[index]["item"]
-                        ),
-                  ],
-                ),
-                CartCount(
-                  bagimage: AppImages.BlackCartBag,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: GridView.builder(
-                  itemCount: Fishes.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      // crossAxisSpacing: 5,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 4 / 5),
-                  itemBuilder: (context, index) {
-                    return GlobalCards(
-                      priceText: Fishes[index]["price"].toString(),
-                      itemName: Fishes[index]["item"],
-                      iconColor: Fishes[index]['isFav'] == true
-                          ? Colors.red
-                          : Colors.grey,
-                    );
-                  }),
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Home();
+                            }));
+                          },
+                          icon: Icon(Icons.arrow_back_ios)),
+                      Text("assam"
+                          // category[index]["item"]
+                          ),
+                    ],
+                  ),
+                  CartCount(
+                    bagimage: AppImages.BlackCartBag,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: GridView.builder(
+                    itemCount: Fishes.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        // crossAxisSpacing: 5,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 2 / 3),
+                    itemBuilder: (context, index) {
+                      return GlobalCards(
+                        priceText: Fishes[index]["price"].toString(),
+                        itemName: Fishes[index]["item"],
+                        iconColor: Fishes[index]['isFav'] == true
+                            ? Colors.red
+                            : Colors.grey,
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -5,12 +5,14 @@ class Custombutton extends StatelessWidget {
   final void Function()? onpressed;
   final Color buttonColor;
   final Color buttonTextColor;
+  final double buttontextFontSize;
   const Custombutton({
     super.key,
     required this.buttonText,
     this.onpressed,
     required this.buttonColor,
     required this.buttonTextColor,
+    required this.buttontextFontSize,
   });
 
   @override
@@ -24,7 +26,10 @@ class Custombutton extends StatelessWidget {
       onPressed: onpressed,
       child: Text(
         buttonText,
-        style: TextStyle(color: buttonTextColor, fontSize: 30),
+        style: TextStyle(
+          color: buttonTextColor,
+          fontSize: buttontextFontSize,
+        ),
       ),
     );
   }
