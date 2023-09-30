@@ -7,7 +7,11 @@ import '../constants/app_images.dart';
 import '../screens/cart_Screen/ShoopingCart_Screen.dart';
 
 class CartCount extends StatefulWidget {
-  const CartCount({super.key});
+  final String bagimage;
+  const CartCount({
+    super.key,
+    required this.bagimage,
+  });
 
   @override
   State<CartCount> createState() => _CartCountState();
@@ -31,9 +35,7 @@ class _CartCountState extends State<CartCount> {
         child: Stack(children: [
           Positioned(
             bottom: 0,
-            child: Image.asset(
-              AppImages.bag,
-            ),
+            child: Image.asset(AppImages.bag),
           ),
           Positioned(
             bottom: 10,

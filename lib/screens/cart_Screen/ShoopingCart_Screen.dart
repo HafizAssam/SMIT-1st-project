@@ -1,3 +1,4 @@
+import 'package:figma_app1/bottom_navigation_bar.dart';
 import 'package:figma_app1/constants/app_images.dart';
 import 'package:figma_app1/constants/app_themcolor.dart';
 import 'package:figma_app1/data.dart';
@@ -10,25 +11,86 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.35,
-              color: appColor.Yellow,
-            ),
-            ListView.builder(
-                shrinkWrap: true,
-                itemCount: cartItem.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    tileColor: Colors.green,
-                    leading: Image.asset(AppImages.ImageIcon),
-                    title: Text(cartItem[index]["item"]),
-                    subtitle: Text(cartItem[index]["price"].toString()),
-                  );
-                }),
-          ],
-        ),
+        child: Stack(children: [
+          Column(
+            children: [
+              Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 1,
+                  color: appColor.lemonyellow,
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          SizedBox(
+                            height: 200,
+                            child: Image.asset(AppImages.hashTake),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Icon(Icons.arrow_back_ios),
+                                ),
+                                Text(
+                                  'Shopping Cart (${cartItem.length})',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 00,
+                            right: 00,
+                            child: Column(
+                              children: [
+                                Text(
+                                  'OFF',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "50%",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 100,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Image.asset(AppImages.)
+                        ],
+                      ),
+                    ],
+                  )),
+              Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: cartItem.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Image.asset(AppImages.ImageIcon),
+                        title: Text(cartItem[index]["item"]),
+                        subtitle: Text(cartItem[index]["price"].toString()),
+                      );
+                    }),
+              ),
+              Container(
+                height: 60,
+                color: appColor.grey,
+              )
+            ],
+          ),
+        ]),
       ),
     );
   }

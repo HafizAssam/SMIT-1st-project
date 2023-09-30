@@ -1,5 +1,7 @@
 // ============= Furits================
 
+import 'package:figma_app1/constants/app_images.dart';
+
 List<Map> fruit = [
   {
     'item': 'Mango',
@@ -268,12 +270,30 @@ List Meat = [
 
 // ============category============
 List category = [
-  {"item": "vegetabel"},
-  {"item": "fruit"},
-  {"item": "Fishes"},
-  {"item": "Meat"},
-  {"item": "Karyana"},
-  {"item": "Checken"},
+  {
+    "item": "vegetabel",
+    "image": AppImages.vegetableBasket,
+  },
+  {
+    "item": "fruit",
+    "image": AppImages.fruitBasket,
+  },
+  {
+    "item": "Fishes",
+    "image": AppImages.Fishes,
+  },
+  {
+    "item": "Meat",
+    "image": AppImages.Meat,
+  },
+  {
+    "item": "Karyana",
+    "image": AppImages.Karyana,
+  },
+  {
+    "item": "Checken",
+    "image": AppImages.Checken,
+  },
 ];
 
 //  =======cartitem=======

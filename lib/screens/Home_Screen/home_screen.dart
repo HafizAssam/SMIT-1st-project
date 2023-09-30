@@ -46,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                                 color: appColor.Whitegrey, fontSize: 25),
                           ),
-                          CartCount(),
+                          CartCount(
+                            bagimage: AppImages.bag,
+                          ),
                         ],
                       ),
                       SizedBox(

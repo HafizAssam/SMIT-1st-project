@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 
 class CategryCards extends StatelessWidget {
   final String itemNameText;
+  final String itemImage;
 
   const CategryCards({
     super.key,
     required this.itemNameText,
+    required this.itemImage,
   });
 
   @override
@@ -22,7 +24,7 @@ class CategryCards extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 160,
+            height: 170,
             width: 140,
             // color: Colors.amber,
             decoration: BoxDecoration(
@@ -31,7 +33,14 @@ class CategryCards extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Image.asset(AppImages.ImageIcon),
+                SizedBox(
+                  width: 140,
+                  height: 140,
+                  child: Image.asset(itemImage),
+                ),
+                SizedBox(
+                  height: 08,
+                ),
                 Text(
                   itemNameText,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),

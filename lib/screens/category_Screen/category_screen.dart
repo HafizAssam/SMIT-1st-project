@@ -1,3 +1,4 @@
+import 'package:figma_app1/constants/app_images.dart';
 import 'package:figma_app1/constants/app_themcolor.dart';
 import 'package:figma_app1/custom_widget/cards.dart';
 import 'package:figma_app1/custom_widget/cartCount.dart';
@@ -36,7 +37,9 @@ class CategryScreen extends StatelessWidget {
                         SizedBox(
                           width: 20,
                         ),
-                        CartCount(),
+                        CartCount(
+                          bagimage: AppImages.bag,
+                        ),
                       ],
                     )
                   ],
@@ -80,7 +83,9 @@ class CategryScreen extends StatelessWidget {
                   mainAxisSpacing: 15,
                 ),
                 itemBuilder: (context, index) {
-                  return CategryCards(itemNameText: category[index]["item"]);
+                  return CategryCards(
+                      itemImage: category[index]["image"],
+                      itemNameText: category[index]["item"]);
                 }),
           )
         ]),

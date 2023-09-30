@@ -1,3 +1,4 @@
+import 'package:figma_app1/constants/app_images.dart';
 import 'package:figma_app1/constants/app_themcolor.dart';
 import 'package:figma_app1/custom_widget/cartCount.dart';
 import 'package:figma_app1/data.dart';
@@ -28,7 +29,9 @@ class FavouriteScreen extends StatelessWidget {
                           style: TextStyle(
                               color: appColor.Whitegrey, fontSize: 25),
                         ),
-                        CartCount(),
+                        CartCount(
+                          bagimage: AppImages.bag,
+                        ),
                       ],
                     ),
                     SizedBox(
